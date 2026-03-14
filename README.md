@@ -6,69 +6,19 @@ El sistema implementa una arquitectura MVC (Modelo – Vista – Controlador) co
 
 🚀 Tecnologías Utilizadas
 
-Java
-
-Jakarta Servlet
-
-JSP
-
-JDBC
-
-MySQL
-
-HTML5
-
-CSS3
-
-Apache Tomcat
-
-Maven
-
-Git / GitHub
+Java, Jakarta Servlet, JSP , JDBC , MySQL, HTML5, CSS3, Apache Tomcat, Maven, Git / GitHub
 
 🏗 Arquitectura del Proyecto
 
 El sistema sigue el patrón MVC:
 
-Modelo (Model)
+Modelo (Model): Usuario, Libro y Prestamo
 
-Usuario
+DAO (Acceso a datos); UsuarioDAO, PrestamoDAO y LibroDAO
 
-Libro
+Controladores (Servlets): LoginServlet, DashboardServlet, UsuarioDashboardServlet, UsuarioServlet, PrestamoServletn y LogoutServlet
 
-Prestamo
-
-DAO (Acceso a datos)
-
-UsuarioDAO
-
-PrestamoDAO
-
-Controladores (Servlets)
-
-LoginServlet
-
-DashboardServlet
-
-UsuarioDashboardServlet
-
-UsuarioServlet
-
-PrestamoServlet
-
-LogoutServlet
-
-Vistas (JSP)
-
-login.jsp
-
-dashboard.jsp
-
-dashboard_user.jsp
-
-usuarios.jsp
-
-prestamos.jsp
+Vistas (JSP): index.jsp, dashboard_admin.jsp, dashboard_user.jsp, usuarios.jsp, prestamos.jsp
 
 👥 Roles del Sistema
 
@@ -76,72 +26,24 @@ El sistema tiene dos tipos de usuarios:
 
 👨‍💼 Administrador
 
-Puede:
-
-Gestionar usuarios
-
-Administrar préstamos
-
-Visualizar el catálogo completo
-
-Prestar libros a usuarios
-
-Registrar devoluciones
+Puede: Gestionar usuarios, Administrar préstamos, Visualizar el catálogo completo, Prestar libros a usuarios y Registrar devoluciones
 
 👤 Usuario
 
-Puede:
-
-Ver los libros que tiene prestados
-
-Consultar el catálogo de libros
-
-Visualizar disponibilidad de libros
-
-Navegar el catálogo con paginación
+Puede: Ver los libros que tiene prestados, Consultar el catálogo de libros, Visualizar disponibilidad de libros y Navegar el catálogo con paginación
 
 📚 Funcionalidades del Sistema
 Autenticación
 
-Inicio de sesión
-
-Control de sesión
-
-Redirección según rol
-
-Cierre de sesión
-
-Gestión de Usuarios
-
-Listar usuarios
-
-Crear usuarios
-
-Editar usuarios
-
-Eliminar usuarios
-
-Gestión de Libros
-
-Visualización del catálogo
-
-Estado de disponibilidad
-
-Gestión de Préstamos
-
-Registrar préstamo
-
-Registrar devolución
+Inicio de sesión - Control de sesión - Redirección según rol - Cierre de sesión - Gestión de Usuarios - Listar usuarios - Crear usuarios - Editar usuarios - Eliminar usuarios
+Gestión de Libros - Visualización del catálogo- Estado de disponibilidad - Gestión de Préstamos - Registrar préstamo - Registrar devolución
 
 Actualizar disponibilidad automáticamente
 
-Dashboard
-
-Dashboard de administrador
-
-Dashboard de usuario
-
-Paginación
+- Dashboard
+- Dashboard de administrador
+- Dashboard de usuario
+- Paginación
 
 El catálogo de libros implementa paginación mostrando 10 registros por página.
 
@@ -149,67 +51,42 @@ El catálogo de libros implementa paginación mostrando 10 registros por página
 
 Nombre de la base de datos:
 
-biblioteca
+-biblioteca
 
 Tablas principales
 
 usuarios
-
 Campos principales:
-
-id
-
-nombre
-
-email
-
-password
-
-rol
+- id
+- nombre
+- email
+- password
+- rol
 
 libros
-
 Campos principales:
-
-id
-
-titulo
-
-autor
-
-disponible
+- id
+- titulo
+- autor
+- disponible
 
 prestamos
-
 Campos principales:
-
-id
-
-usuario_id
-
-libro_id
-
-fecha_prestamo
-
-fecha_devolucion
+- id
+- usuario_id
+- libro_id
+- fecha_prestamo
+- fecha_devolucion
 
 👤 Usuarios de Prueba
 
 Administrador
-
-Email:
-admin@biblioteca.com
-
-Password:
-admin123456
+- Email: admin@biblioteca.com
+- Password: admin123456
 
 Usuario
-
-Email:
-usuario@gmail.com
-
-Password:
-user123456
+- Email: usuario@gmail.com
+- Password: user123456
 
 ⚙ Instalación del Proyecto
 1. Clonar el repositorio
@@ -249,38 +126,59 @@ Apache Tomcat
 
 Abrir en el navegador:
 
-http://localhost:8080/biblioteca/login
+http://localhost:8080/biblioteca
 ````
 📂 Estructura del Proyecto
 
 
-src
+Java
 ├── controller
-│ ├── LoginServlet
 │ ├── DashboardServlet
-│ ├── UsuarioDashboardServlet
-│ ├── UsuarioServlet
+│ ├── LibroServlet
+│ ├── LoginServlet
+│ ├── LogoutServlet
 │ ├── PrestamoServlet
-│ └── LogoutServlet
+│ ├── RegistroServlet
+│ ├── UsuarioDashboardServlet
+│ └── UsuarioServlet
 │
 ├── dao
+│ ├── LibroDAO
 │ ├── UsuarioDAO
 │ └── PrestamoDAO
 │
 ├── model
-│ ├── Usuario
-│ └── Libro
+│ ├── Conexion_test
+│ ├── Libro
+│ ├── Prestamo
+│ └── Usuario
 │
 ├── util
 │ └── ConexionDB
 │
 └── webapp
-├── login.jsp
-├── dashboard.jsp
-├── dashboard_user.jsp
-├── usuarios
-├── prestamos
-└── css
+    ├── components
+    │   └── navbar.jsp
+    ├── css
+    │   └── style.css
+    ├── libros
+    │   ├── agregar_libro.jsp
+    │   ├── editar_lbro.jsp
+    │   └── libros.jsp
+    ├── prestamos
+    │   └── prestamos.jsp
+    ├── usuarioas
+    │   ├── agregar_usuario.jsp
+    │   ├── editar_usuario.jsp
+    │   └── usuario.jsp
+    ├── WEB-INF
+    │   └── web.xml
+    ├── index.jsp
+    ├── dashboard_admin.jsp
+    ├── dashboard_user.jsp
+    ├── login.jsp
+    └── registro.jsp
+    
 ````
 🧪 Pruebas
 
