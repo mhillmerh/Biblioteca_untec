@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
 
             // Ir al controlador del dashboard
             // REDIRECCIÓN SEGÚN ROL
-            if(usuario.getRol().equalsIgnoreCase("admin")){
+            if(usuario.getRol().equalsIgnoreCase("Administrador")){
 
                 response.sendRedirect(request.getContextPath() + "/dashboard");
 
